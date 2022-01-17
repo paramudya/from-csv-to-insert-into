@@ -1,16 +1,48 @@
 Transforming your CSV table into an-SQL query ready format to put in your INSERT INTO function does not get easier. Came in real handy when you (like me) had limited access to upload a table to the database--you just had to make do with what you can do: CREATE TABLE and INSERT INTO.
 
-steps:
+# steps:
 1. run script
-``` fctii.py(#this sthe args)
+``` py fctii.py filename null_symbol string_columns
 ```
+args:
+* filename has to be in **csv** without its .csv ending and include their parent directory if not already in the same dir--but still has to be under the working directory
+** null_symbol is usually either NULL or ?
+*** string_columns define the columns that need the apostrophes around the phrase, could be in the columns' index (1-based) or names
 2. copy all the text from (filename).txt to your INSERT INTO query right after the VALUES statement: INSERT INTO (table name) VALUES (_insert here_)
 3. run query
 
-sample example:
-CREATE TABLE test (id INT, stall STRING, food string)
+# sample example:
+for a table of form in a **food_stall.csv** to be inserted into a **sample_table** table in your databse:
+columns
+1   id      int
+2   stall   string
+3   food    string
+sample
+    id  stall             thing
+ 1  01  Cirebon 77        Bubur Ayam
+ 2  02  Depan Kanayakan   Sate Ayam
+ 3  11  For You           Juice
+ 4  21  Delicious Night   ?
 
+run
+``` py fctii.py food_stall ? 2,thing
+```
 
-note: for Impala, always choose STRING over VARCHAR as its innate attribute causes errors in the process. You can just cast the STRING columns back to VARCHAR later under SELECT statement.
+open
+food_stall.txt
+and copy all the text inside--expected text to be found:
+```
+(01,"Cirebon 77","Bubur Ayam"),
+(02,"Depan Kanayakan","Sate Ayam"),
+(11,"For You","Juice"),
+(21,"Delicious Night",NULL);
+```
+
+query
+INSERT INTO sample_table 
+VALUES 
+(**_paste all the copied text here_**);
+
+note: for Impala, and prolly some other SQL accent (likely Hive too), always choose STRING over VARCHAR as its innate attribute causes errors in the process. You can just cast the STRING columns back to VARCHAR later under SELECT statement.
 
 
