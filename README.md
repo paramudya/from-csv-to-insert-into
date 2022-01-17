@@ -15,6 +15,7 @@ args:
 # sample example:
 for a table of form in a **food_stall.csv** to be inserted into a **sample_table** table in your databse:
 columns
+|     |         |           |
 | --- | ---     | ---       |
 | 1   | id      | int       |
 | 2   | stall   | string    |
