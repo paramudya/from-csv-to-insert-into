@@ -20,13 +20,15 @@ columns
 | 1   | id      | int       |
 | 2   | stall   | string    |
 | 3   | food    | string    |
-id
+
+
 sample
-    id  stall             thing
- 1  01  Cirebon 77        Bubur Ayam
- 2  02  Depan Kanayakan   Sate Ayam
- 3  11  For You           Juice
- 4  21  Delicious Night   ?
+   | id | stall            | thing
+ --| ---| ---              | ---       
+ 1 | 01 | Cirebon 77       | Bubur Ayam
+ 2 | 02 | Depan Kanayakan  | Sate Ayam
+ 3 | 11 | For You          | Juice
+ 4 | 21 | Delicious Night  | ?
 
 run
 ``` 
