@@ -45,6 +45,8 @@ INSERT INTO sample_table
 VALUES 
 (**_paste all the copied text here_**);
 
+requirements: Python 3.7 version or above, Numpy, pandas
+
 note: for Impala, and prolly some other SQL accent (likely Hive too), always define tables with STRING type instead of VARCHAR as its innate attribute does not allow VARCHAR type data to be inserted through query. If needed during a joining process, the STRING columns can just be cast as VARCHAR later under SELECT statement.
 
 
