@@ -46,8 +46,8 @@ and copy all the text inside—expected text inside the file:
 ```
 
 query
-INSERT INTO sample_table 
-VALUES 
+INSERT INTO sample_table \n
+VALUES \n
 (**_paste all the copied text here_**);
 
 requirements: Python 3.7 version or above, Numpy, pandas
