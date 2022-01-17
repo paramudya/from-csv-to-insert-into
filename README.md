@@ -4,7 +4,7 @@ steps:
 1. run 
 ``` fctii.py(#this sthe args)
 ```
-2. copy all the text from (filename).txt to your INSERT INTO query right after the VALUES statement: INSERT INTO (table name) VALUES ...
+2. copy all the text from (filename).txt to your INSERT INTO query right after the VALUES statement: INSERT INTO (table name) VALUES (/insert here/)
 3. run the query
 
 sample example:
