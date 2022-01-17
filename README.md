@@ -2,7 +2,8 @@ Transforming your CSV table into an-SQL query ready format to put in your INSERT
 
 # steps:
 1. run script
-``` py fctii.py filename null_symbol string_columns
+``` 
+py fctii.py filename null_symbol string_columns
 ```
 args:
 * filename has to be in **csv** without its .csv ending and include their parent directory if not already in the same dir--but still has to be under the working directory
@@ -25,12 +26,13 @@ sample
  4  21  Delicious Night   ?
 
 run
-``` py fctii.py food_stall ? 2,thing
+``` 
+py fctii.py food_stall ? 2,thing
 ```
 
 open
 food_stall.txt
-and copy all the text inside--expected text to be found:
+and copy all the text inside—expected text inside the file:
 ```
 (01,"Cirebon 77","Bubur Ayam"),
 (02,"Depan Kanayakan","Sate Ayam"),
@@ -43,6 +45,6 @@ INSERT INTO sample_table
 VALUES 
 (**_paste all the copied text here_**);
 
-note: for Impala, and prolly some other SQL accent (likely Hive too), always choose STRING over VARCHAR as its innate attribute causes errors in the process. You can just cast the STRING columns back to VARCHAR later under SELECT statement.
+note: for Impala, and prolly some other SQL accent (likely Hive too), always define tables with STRING type instead of VARCHAR as its innate attribute does not allow VARCHAR type data to be inserted through query. If needed during a joining process, the STRING columns can just be cast as VARCHAR later under SELECT statement.
 
 
