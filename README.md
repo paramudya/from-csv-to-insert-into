@@ -49,7 +49,7 @@ query
 ```
 INSERT INTO sample_table 
 VALUES 
-(**_paste all the copied text here_**);
+(_paste all the copied text here_);
 ```
 requirements: Python 3.7 version or above, Numpy, pandas
 
