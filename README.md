@@ -6,9 +6,9 @@ Transforming your CSV table into an-SQL query ready format to put in your INSERT
 py fctii.py filename null_symbol string_columns
 ```
 args:
-- __filename__ has to be in **csv** without its .csv ending and include their parent directory if not already in the same dir--but still has to be under the working directory
-- __null_symbol__ is usually either NULL or ?
-- __string_columns__ define the columns that need the apostrophes around the phrase, could be in the columns' index (1-based) or names
+- filename has to be in **csv** without its .csv ending and include their parent directory if not already in the same dir--but still has to be under the working directory
+- null_symbol defines what is the symbol used to signify a NULL value; is usually either NULL or ?
+- string_columns define the columns that need the apostrophes around the phrase, could be in the columns' index (1-based) or names
 2. copy all the text from (filename).txt to your INSERT INTO query right after the VALUES statement: INSERT INTO (table name) VALUES (_insert here_)
 3. run query
 
