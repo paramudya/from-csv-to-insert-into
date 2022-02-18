@@ -10,29 +10,31 @@ str_cols_arg=sys.argv[3] #? or NULL
 
 input_table=pd.read_csv(f"{filename}.csv")
 
-str_cols_defined=str_cols_arg.split(",") #split 3rd arg to a list of strings
+if str_cols_arg!='-':
+    str_cols_defined=str_cols_arg.split(",") #split 3rd arg to a list of strings
+    temp_cols_str=[]
+    for col in str_cols_defined: #transform a list of cols name to their index
+        try:
+            temp_cols_str.append(int(col)-1) #for index columns used
+        except:
+            temp_cols_str.append(list(input_table.columns).index(col)) #for name of columns used
+    str_cols_defined=temp_cols_str
+else:
+    str_cols_defined=[]
 
-temp_cols_str=[]
-for col in str_cols_defined: #transform a list of cols name to their index
-    try:
-        temp_cols_str.append(int(col)-1) #for index columns used
-    except:
-        temp_cols_str.append(list(input_table.columns).index(col)) #for name of columns used
-str_cols_defined=temp_cols_str
 
 #csv modification
 def query(table,string_cols): #string colscould be in index (int) or name of the column
     for i, row in table.iterrows():
         for j in range(table.shape[1]): #jadiin string
+            if table.iloc[i][j] == f'{null_symbol}':
+                table.iloc[i,j] = 'NULL'
             if j in str_cols_defined:
-                if table.iloc[i][j] != f'{null_symbol}':
-                    table.iloc[i][j]=f'"{table.iloc[i][j]}"'
-                else:
-                    table.iloc[i][j] = 'NULL'
+                table.iloc[i,j]=f'"{table.iloc[i][j]}"'
             if j == 0:
-                table.iloc[i][j]='('+table.iloc[i][j]
+                table.iloc[i,j]='('+str(table.iloc[i][j])
             elif j == table.shape[1]-1:
-                table.iloc[i][j]=table.iloc[i][j]+')'
+                table.iloc[i,j]=str(table.iloc[i][j])+')'
 
                 
 query(input_table,str_cols_defined)
