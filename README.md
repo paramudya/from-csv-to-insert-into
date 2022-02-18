@@ -1,4 +1,4 @@
-Transforming your CSV table into an-SQL query ready format to put in your INSERT INTO function does not get easier. Came in real handy when you (like me) had limited access to upload a table to the database--you just had to make do with what you can do: CREATE TABLE and INSERT INTO.
+Transforming your CSV table into an-SQL query ready format to put in your INSERT INTO function. Came in real handy when you (like me) had limited access to upload a table to the database--you just had to make do with what you can do: CREATE TABLE and INSERT INTO.
 
 # steps:
 1. run script
@@ -9,8 +9,8 @@ args:
 - filename has to be in **csv** without its .csv ending and include their parent directory if not already in the same dir--but still has to be under the working directory
 - null_symbol defines what is the symbol used to signify a NULL value; is usually either NULL or ?
 - string_columns define the columns that need the apostrophes around the phrase, could be in the columns' index (1-based) or names
-2. copy all the text from (filename).txt to your INSERT INTO query right after the VALUES statement: INSERT INTO (table name) VALUES (_insert here_)
-3. run query
+2. copy all the text from  the resulting (filename).txt to your INSERT INTO query right after the VALUES statement: INSERT INTO (table name) VALUES (_insert here_)
+3. run 
 
 # sample example:
 for a table of form in a **food_stall.csv** to be inserted into a **sample_table** table in your databse:
@@ -37,7 +37,7 @@ py fctii.py food_stall ? 2,thing
 
 open
 food_stall.txt
-and copy all the text inside—expected text inside the file:
+and copy all the text inside--expected text inside the file:
 ```
 (01,"Cirebon 77","Bubur Ayam"),
 (02,"Depan Kanayakan","Sate Ayam"),
@@ -49,7 +49,7 @@ query
 ```
 INSERT INTO sample_table 
 VALUES 
-(_paste all the copied text here_);
+(_paste here all the copied text from above);
 ```
 requirements: Python 3.7 version or above, Numpy, pandas
 
