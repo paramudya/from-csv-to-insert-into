@@ -7,8 +7,8 @@ py fctii.py filename null_symbol string_columns
 ```
 args:
 - filename has to be in **csv** without its .csv ending and include their parent directory if not already in the same dir--but still has to be under the working directory
-- null_symbol defines what is the symbol used to signify a NULL value; is usually either NULL or ?
-- string_columns define the columns that need the apostrophes around the phrase, could be in the columns' index (1-based) or names
+- null_symbol defines what is the symbol used to signify a NULL value; is usually either NULL or ? or if there is none: any character really 
+- string_columns define the columns that need the apostrophes around the phrase, could be in the columns' index (1-based) or names. if there's none, type in -
 2. copy all the text from  the resulting (filename).txt to your INSERT INTO query right after the VALUES statement: INSERT INTO (table name) VALUES (_insert here_)
 3. run 
 
